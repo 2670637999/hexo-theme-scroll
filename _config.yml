@@ -1,0 +1,55 @@
+########### 站点 ###########
+
+# 主题指向                     
+theme: Scroll                   
+# 博客标题                     
+title: 陈陈菌的博客              
+# 作者                         
+author: ChenJieHai            
+# 站点url                      
+url: http://example.com        
+# 站点目录                     
+root: /                        
+# 文章url规则(需要在文章抬头中定义 "id: xxx" )                 
+permalink: :id.html           
+
+
+
+# 归档页面指向
+archivesRoot: /archive/
+# 关于页面指向(可自定义正文)
+aboutRoot: /about/
+# 分类页面指向
+categoryRoot: /category/
+# 标签页面指向
+tageRoot: /tage/
+# 留言页面指向
+lyRoot: /ly/
+
+
+
+# 显示页面数
+per_page: 4
+pagination_dir: page
+
+# 指定资源目录
+source_dir: source
+# 是否生成文章资源文件夹（与 md 名称一致）
+post_asset_folder: true
+
+# 评论
+valine:
+  el: '#vcomments'
+  appId: '41kezWMH0Y9PLCkY9LdxaloC-gzGzoHsz'
+  appKey: 'Q3OmEu9PDvYMPTuzhOinxtkm'
+
+
+# 首页描述（SEO）
+description: '首页描述'
+keyword: 首页关键字
+
+# 部署 
+deploy:
+  type: ''
+
+
