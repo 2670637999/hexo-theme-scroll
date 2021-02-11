@@ -1,6 +1,6 @@
 ## 一个极简的 Hexo 主题
 
-简约而不简单。
+简约而不简单。<a href="https://chenjiehai.gitee.io/">预览</a>
 
 ### SEO
 - 1.自定义文章描述/关键字
