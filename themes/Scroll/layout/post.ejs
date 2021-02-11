@@ -1,0 +1,38 @@
+---
+layout: layout
+---
+<div id="content">
+    <h1 id="title"><%= page.title %></h1>
+
+    <div id="Article">
+            <div id="ArticleText">
+                <%- page.content %>
+            </div>
+            <br>
+            <br>
+            <hr>
+    </div>
+    <% if (page.prev){ %>
+    <div id="previous">
+        <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; 上一篇</a>
+    </div>
+    <% } %>
+    <% if (page.next){ %>
+    <div id="next">
+        <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">下一篇 &rarr;</a>
+    </div>
+    <% } %>
+</div>
+<div id="comment">
+    <%- include("comment.ejs") %> 
+</div>
+<div id="about">
+    <ul>
+        <li><a href="<%- config.root %>">首页</a><p></p></li>
+        <li><a href="<%- config.archivesRoot %>">归档</a><p></p></li>
+        <li><a href="<%- config.aboutRoot %>">关于</a><p></p></li>
+        <li><a href="<%- config.categoryRoot %>">分类</a><p></p></li>
+        <li><a href="<%- config.tageRoot %>">标签</a><p></p></li>
+        <li><a href="<%- config.lyRoot %>">留言</a><p></p></li>
+    </ul>
+</div>

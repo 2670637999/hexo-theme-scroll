@@ -1,0 +1,50 @@
+<div id="content">
+    <h1 id="title"><%= page.title %></h1>
+    <div id="Article">
+            <div id="ArticleText">
+              <% site.tags.map(function(tag){  %>
+                    <a id="categorieTage" href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
+                <% }) %>
+      <!-- 标签列表 -->
+      <% site.tags.map(function(tag){  %>
+        <div class="one-tag-list">
+          <span class="fa fa-tag listing-seperator" id="<%= tag.name %>">
+            <span class="tag-text"><%= tag.name %></span>
+          </span>
+          <% tag.posts.map(function(post){  %>
+                    
+          <div class="post-preview">
+            <a href="<%- config.root %><%- post.path %>">
+              <h2 class="post-title">
+                <%- post.title || "Untitled" %>
+                
+              </h2>
+              <% if (post.subtitle && post.subtitle.length) { %>
+              <h3 class="post-subtitle">
+                <%- post.subtitle %>
+              </h3>
+              <% } %>
+              
+            </a>
+          </div>
+          
+          <% }) %>
+        </div>
+        <% }) %>
+  
+            </div>
+            <br>
+            <br>
+    </div>
+</div>
+<div id="about">
+  <ul>
+    <li><a href="<%- config.root %>">首页</a><p></p></li>
+    <li><a href="<%- config.archivesRoot %>">归档</a><p></p></li>
+    <li><a href="<%- config.aboutRoot %>">关于</a><p></p></li>
+    <li><a href="<%- config.categoryRoot %>">分类</a><p></p></li>
+    <li><a href="<%- config.tageRoot %>">标签</a><p></p></li>
+    <li><a href="<%- config.lyRoot %>">留言</a><p></p></li>
+  </ul>
+</div>
+
