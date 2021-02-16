@@ -7,17 +7,34 @@ layout: layout
 
     <div id="Article">
             <div id="ArticleText">
-             <%- page.content %>
+                <%- page.content %>
+                <h2>如果要联系我：</h2>
+
+                <table>
+                    <thead>
+                        <th></th><th></th><th></th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <a href="tencent://message/?uin=<%- config.QQ %>&Site=Sambow&Menu=yes">
+                                <i class="fa fa-qq"></i>QQ
+                            </a>
+                        </td>
+                        
+                        <td>
+                            <a href="https://github.com/<%- config.GitHub %>">
+                                <i class="fa fa-github"></i>GitHub
+                            </a>
+                        </td>
+                        
+                        <td>
+                            <a href="mailto:<%= config.Email %>">
+                                <i class="fa fa-envelope"></i>邮箱
+                            </a>
+                        </td>
+                    </tbody>
+                </table>
             </div>
     </div>
-</div>
-<div id="about">
-    <ul>
-        <li><a href="<%- config.root %>">首页</a><p></p></li>
-        <li><a href="<%- config.archivesRoot %>">归档</a><p></p></li>
-        <li><a href="<%- config.aboutRoot %>">关于</a><p></p></li>
-        <li><a href="<%- config.categoryRoot %>">分类</a><p></p></li>
-        <li><a href="<%- config.tageRoot %>">标签</a><p></p></li>
-        <li><a href="<%- config.lyRoot %>">留言</a><p></p></li>
-    </ul>
+    <br>
 </div>

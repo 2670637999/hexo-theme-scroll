@@ -1,7 +1,8 @@
 
-
 <div id="content">
-    <h1 id="title"><%= config.title %></h1>
+    <h1 id="title">
+        <%= config.title %>
+    </h1>
     <% page.posts.each(function(page){ %>
     <div id="Article">
             <h2 id="ArticleTitle">
@@ -27,16 +28,10 @@
             <hr>
     </div>
     <% }); %>
-    <div id="previous"><a href="<%- config.root %><%- page.prev_link %>">上一页</a></div>
-    <div id="next"><a href="<%- config.root %><%- page.next_link %>">下一页</a></div>
-</div>
-<div id="about">
-    <ul>
-        <li><a href="<%- config.root %>">首页</a><p></p></li>
-        <li><a href="<%- config.archivesRoot %>">归档</a><p></p></li>
-        <li><a href="<%- config.aboutRoot %>">关于</a><p></p></li>
-        <li><a href="<%- config.categoryRoot %>">分类</a><p></p></li>
-        <li><a href="<%- config.tageRoot %>">标签</a><p></p></li>
-        <li><a href="<%- config.lyRoot %>">留言</a><p></p></li>
-    </ul>
+    <div id="Articlefooter">
+        <div id="previous"><a href="<%- config.root %><%- page.prev_link %>">上一页</a></div>
+        <div id="next"><a href="<%- config.root %><%- page.next_link %>">下一页</a></div>
+    </div>
+    <p></p>
+    <br>
 </div>
