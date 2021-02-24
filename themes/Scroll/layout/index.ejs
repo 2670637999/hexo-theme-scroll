@@ -1,37 +1,53 @@
+<div id="app">
+    <div id="content">
+        <%- include('nav.ejs') %>
 
-<div id="content">
-    <h1 id="title">
-        <%= config.title %>
-    </h1>
-    <% page.posts.each(function(page){ %>
-    <div id="Article">
-            <h2 id="ArticleTitle">
-                <a href="/<%- page.path %>">
-                    <%- page.title %><br>
-                    <div></div>
-                </a>
-            </h2>
-            <div id="ArticleText">
-                <%- truncate(strip_html(page.content), {length: 200, omission: '...'}) %>
-            </div>
+        <div id="title">
+            <h1>
+                <%= config.title %><br>
+                <% if(config.subtitle!=null) { %>
+                <p style="font-size: 0.5em;margin-top: 10px;">
+                    <%= config.subtitle %><br>
+                </p>
+                <% } %>
+            </h1>
+        </div>
+
+        <% page.posts.each(function(page){ %>
+        <div id="article">
+            <a id="articleTitle" href="/<%- page.path %>">
+                <%- page.title %><br>
+            </a>
+            <% if(page.subtitle!=null){ %>
+                <span style="font-size: 0.8em;">
+                    <%- page.subtitle %>
+                </span>
+                <br>
+            <% } %>
             <br>
+            <span id="indexArticleText">
+                <%- truncate(strip_html(page.content), {length: 50, omission: '...'}) %>
+            </span>
             <p>
                 <% page.categories.forEach(function(category){ %> 
-                    <span id="categorieTage"><%= category.name %></span> 
+                    <a id="categorieTage" href="/categories/#<%= category.name %>"><%= category.name %></a> 
                 <% }) %>
                 
                 <% page.tags.forEach(function(tage){ %>
-                    <span id="categorieTage"><%= tage.name %></span> 
+                    <a id="categorieTage" href="/tage/#<%= tage.name %>"><%= tage.name %></a> 
                 <% }) %>
             </p>
-            <br>
-            <hr>
+        </div>
+        <hr>
+        <% }); %>
+
+        <div id="index-footer">
+            <% if (page.prev){ %>
+            <a href="<%- config.root %><%- page.prev_link %>">上一页</a>
+            <% } %>
+            <% if (page.next){ %>
+            <a id="index-next" href="<%- config.root %><%- page.next_link %>">下一页</a>
+            <% } %>
+        </div>    
     </div>
-    <% }); %>
-    <div id="Articlefooter">
-        <div id="previous"><a href="<%- config.root %><%- page.prev_link %>">上一页</a></div>
-        <div id="next"><a href="<%- config.root %><%- page.next_link %>">下一页</a></div>
-    </div>
-    <p></p>
-    <br>
 </div>

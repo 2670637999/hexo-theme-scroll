@@ -1,0 +1,59 @@
+<div id="app">
+    <div id="content">
+        <%- include('nav.ejs') %>
+        <div id="title">
+          <h1>
+              <span style="font-size: 1em;">
+                  <%= page.title %><br>
+              </span>
+              <% if(page.subtitle!=null) { %>
+              <p style="font-size: 0.5em;margin-top: 10px;">
+                  <%= page.subtitle %><br>
+              </p>
+              <% } %>
+          </h1>
+      </div>
+        <div id="article">
+            <%- page.content %>
+            <% site.tags.map(function(tage){  %>
+                <a id="categorieTage" href="#<%= tage.name %>" title="<%= tage.name %>" rel="<%= tage.length %>"><%= tage.name %></a>
+            <% }) %>
+            <br>
+            <% site.tags.map(function(tage){  %>
+                <div class="one-tag-list">
+                  <span id="<%= tage.name %>">
+                    <span class="tag-text"><%= tage.name %></span>
+                  </span>
+                  <% tage.posts.map(function(post){  %>
+                            
+                  <div class="post-preview">
+                    <a href="<%- config.root %><%- post.path %>">
+                      <h2 class="post-title">
+                        <%- post.title || "Untitled" %>
+                        
+                      </h2>
+                      <% if (post.subtitle && post.subtitle.length) { %>
+                      <h3 class="post-subtitle">
+                        <%- post.subtitle %>
+                      </h3>
+                      <% } %>
+                      
+                    </a>
+                  </div>
+                  
+                <% }) %>
+                </div>
+            <% }) %>
+
+
+            <br>
+            <hr>
+            <br>
+                <div id="article-next">
+                    <a href="<%= config.root %>" data-toggle="tooltip" data-placement="top" title="<%- config.title %>">返回首页 &rarr;</a>
+                </div>
+            <br><br>
+            <hr>
+        </div>
+    </div>
+</div>

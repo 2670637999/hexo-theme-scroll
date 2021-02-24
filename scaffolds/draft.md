@@ -1,8 +1,8 @@
 ---
 title: {{ title }}
-tags:
-category:
-id:
-description:
-keyword:
+subtitle:
+tags: 
+categories:
+imageCover: 
+id: 
 ---

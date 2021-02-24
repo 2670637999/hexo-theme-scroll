@@ -1,14 +1,13 @@
-
-<!-- 2. valine comment -->
 <% if(config['valine']){ %>
-<div id="vcomments" style="box-shadow: 0px 0px 0px 0px #000000;"></div>
-<script src='/js/comment/valine/Valine.min.js'></script>
-<script>
-    var valine = new Valine({
+    <h2>留言</h2>
+    <div id="vcomments">
+    </div>
+    <script>
+        var valine = new Valine({
         el: '<%= config.valine.el %>', 
         appId: '<%= config.valine.appId %>',
         appKey: '<%= config.valine.appKey %>',
-
+    
         emojiCDN: 'https://i0.hdslb.com/bfs/emote/', 
         emojiMaps: {
           "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
@@ -34,9 +33,9 @@
           "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
         }
     })
-</script>
-
+    </script>
 <% } %>
-
-
-
+    
+    
+    
+    

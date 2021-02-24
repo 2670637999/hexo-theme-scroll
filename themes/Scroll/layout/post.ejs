@@ -1,29 +1,42 @@
 ---
 layout: layout
 ---
-<div id="content">
-    <h1 id="title"><%= page.title %></h1>
-
-    <div id="Article">
-            <div id="ArticleText">
-                <%- page.content %>
-            </div>
+<div id="app">
+    <div id="content">
+        <%- include('nav.ejs') %>
+        <div id="title">
+            <h1>
+                <%= page.title %><br>
+                <% if(page.subtitle!=null){ %>
+                    <p>
+                        <%= page.subtitle %><br>
+                    </p>
+                    <br>
+                <% } %>
+                <p>作者：<%- config.author %><br>编写：<%= page.date.format(config.date_format) %></p>
+            </h1>
+        </div>
+        <div id="article">
+            <%- page.content %>   
             <br>
-            <br>
-            <hr>
-    </div>
-    <div id="Articlefooter">
-        <% if (page.prev){ %>
-            <div id="previous">
-                <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; 上一篇</a>
-            </div>
-            <% } %>
-            <% if (page.next){ %>
-            <div id="next">
-                <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">下一篇 &rarr;</a>
-            </div>
+            <hr><br>
+            <% if (page.prev){ %>
+                <div id="article-previous">
+                    <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; 上一篇</a>
+                </div>
+                <% } %>
+                <% if (page.next){ %>
+                <div id="article-next">
+                    <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">下一篇 &rarr;</a>
+                </div>
             <% } %>
             <br><br>
-            <%- include("comment.ejs") %> 
+            <hr>
+        </div>
+    </div>
+
+    <div id="comment">
+        
+        <%- include('comment.ejs') %> 
     </div>
 </div>

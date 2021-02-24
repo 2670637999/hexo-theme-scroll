@@ -1,8 +1,20 @@
-<div id="content">
-    <h1 id="title"><%= page.title %></h1>
-    <div id="Article">
-            <div id="ArticleText">
-                <%
+<div id="app">
+    <div id="content">
+        <%- include('nav.ejs') %>
+        <div id="title">
+            <h1>
+                <span style="font-size: 1em;">
+                    <%= page.title %><br>
+                </span>
+                <% if(page.subtitle!=null) { %>
+                <p style="font-size: 0.5em;margin-top: 10px;">
+                    <%= page.subtitle %><br>
+                </p>
+                <% } %>
+            </h1>
+        </div>
+        <div id="article">
+            <%
                 var years = {};
                 site.posts.sort('date').reverse().forEach(function(post){
                 var year = post.date.year()
@@ -11,29 +23,28 @@
                 }
                 years[year].push(post);
                 });
-                %>
-                <!-- 归档列表 -->
-
-                <% Object.keys(years).reverse().forEach(function(year){  %>
-                <div class="one-tag-list">
-                <span class="tag-text"><%= year %></span>
+            %>
+            
+            <!-- 归档列表 -->
+            
+            <% Object.keys(years).reverse().forEach(function(year){  %>
+            <div class="archives-list">
+                <span class="archives-year"><%= year %></span>
                 <ul>
-                <% years[year].map(function(post){  %>
-
-                <li id="archiveTage">
-                    <%= post.date.format('MM-DD') %>
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
-                    <span>
-                        <%- post.title || "Untitled" %>
-                    </span>
-                    </a>
-                </li>
-                <% }) %>
+                    <% years[year].map(function(post){  %>
+                    <li id="archives-item">
+                        <%= post.date.format('MM-DD') %>
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
+                        <span>
+                            <%- post.title || "Untitled" %>
+                        </span>
+                        </a>
+                    </li>
+                    <% }) %>
                 </ul>
-                </div>
-                <% }) %>
-                <br><br>
             </div>
+            <% }) %>
+        </div>
     </div>
 </div>

@@ -1,7 +1,9 @@
 ---
 title: {{ title }}
+subtitle:
 date: {{ date }}
-id:
-description:
-keyword:
+tags: 
+categories:
+imageCover: 
+id: 
 ---

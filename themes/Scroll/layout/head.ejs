@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--ＪQuery-->
+<%- js('Module/JQuery/jquery.min.js') %>
+
+<!--Vue.js-->
+<%- js('Module/vue/vue.js') %>
+<!--饿了么Ｕi-->
+<%- css('Module/ElementUi/css/index.css') %>
+<%- js('Module/ElementUi/index.js') %>
+
+<!--highlight-->
+<%- css('Module/highlight/css/zenburn.css') %>
+<%- js('Module/highlight/highlight.min.js') %>
+
+<!--axios-->
+<%- js('Module/axios/axios.min.js') %>
+
+<!--评论-->
+<%- js('Module/comment/valine/Valine.min.js') %>
+
+<!--主题样式-->
+<%- css('Module/style.css') %>
+
+<!--设置页面描述与关键字,封面图片-->
+<% if (page.title) { %>
+    <meta name="description" content="<%= page.description %>" />
+    <meta name="keywords" content="<%= page.keywords %>" />
+    <title><%- page.title %></title>
+    <% if(page.imageCover==null) { %>
+    <style>
+        #content #title {
+            background-image: url('<%= config.root %><%= config.imageCover %>');
+        }
+    </style>
+    <% } else { %>
+        <style>
+            #content #title {
+                background-image: url('<%= config.root %><%= page.imageCover %>');
+            }
+        </style>
+    <% } %>
+<%} else { %>
+    <meta name="description" content="<%= config.description %>" />
+    <meta name="keywords" content="<%= config.keywords %>" />
+    <title><%= config.title %></title>
+    <style>
+        #content #title {
+            background-image: url('<%= config.root %><%= config.imageCover %>');
+        }
+    </style>
+<% } %>

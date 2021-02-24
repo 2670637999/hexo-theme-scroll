@@ -1,40 +1,22 @@
----
-layout: layout
----
+<div id="app">
+    <div id="content">
+        <%- include('nav.ejs') %>
+        <div id="title">
+            <h1>
+                <span style="font-size: 1em;">
+                    <%= page.title %><br>
+                </span>
+                <% if(page.subtitle!=null) { %>
+                <p style="font-size: 0.5em;margin-top: 10px;">
+                    <%= page.subtitle %><br>
+                </p>
+                <% } %>
+            </h1>
+        </div>
 
-<div id="content">
-    <h1 id="title"><%= page.title %></h1>
-
-    <div id="Article">
-            <div id="ArticleText">
-                <%- page.content %>
-                <h2>如果要联系我：</h2>
-
-                <table>
-                    <thead>
-                        <th></th><th></th><th></th>
-                    </thead>
-                    <tbody>
-                        <td>
-                            <a href="tencent://message/?uin=<%- config.QQ %>&Site=Sambow&Menu=yes">
-                                <i class="fa fa-qq"></i>QQ
-                            </a>
-                        </td>
-                        
-                        <td>
-                            <a href="https://github.com/<%- config.GitHub %>">
-                                <i class="fa fa-github"></i>GitHub
-                            </a>
-                        </td>
-                        
-                        <td>
-                            <a href="mailto:<%= config.Email %>">
-                                <i class="fa fa-envelope"></i>邮箱
-                            </a>
-                        </td>
-                    </tbody>
-                </table>
-            </div>
+        <div id="article">
+            <%- page.content %>   
+            <br>
+        </div>
     </div>
-    <br>
 </div>
