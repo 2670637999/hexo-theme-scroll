@@ -26,7 +26,7 @@
             <% } %>
             <br>
             <span id="indexArticleText">
-                <%- truncate(strip_html(page.content), {length: 50, omission: '...'}) %>
+                <%- truncate(strip_html(page.content), {length: 300, omission: '...'}) %>
             </span>
             <p>
                 <% page.categories.forEach(function(category){ %> 
