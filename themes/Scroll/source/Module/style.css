@@ -489,3 +489,5 @@ figure,figure table,figure table tbody {
         font-weight: 600;
     }
 }
+
+[v-cloak] { display: none } 
