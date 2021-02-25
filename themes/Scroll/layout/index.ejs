@@ -6,7 +6,7 @@
             <h1>
                 <%= config.title %><br>
                 <% if(config.subtitle!=null) { %>
-                <p style="font-size: 0.5em;margin-top: 10px;">
+                <p>
                     <%= config.subtitle %><br>
                 </p>
                 <% } %>
@@ -19,14 +19,14 @@
                 <%- page.title %><br>
             </a>
             <% if(page.subtitle!=null){ %>
-                <span style="font-size: 0.8em;">
+                <span style="font-size: 0.96em;">
                     <%- page.subtitle %>
                 </span>
                 <br>
             <% } %>
             <br>
             <span id="indexArticleText">
-                <%- truncate(strip_html(page.content), {length: 300, omission: '...'}) %>
+                <%- truncate(strip_html(page.content), {length: 150, omission: '...'}) %>
             </span>
             <p>
                 <% page.categories.forEach(function(category){ %> 

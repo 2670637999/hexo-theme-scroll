@@ -8,6 +8,7 @@ body {
 }
 video {
     width: 100%;
+    background-size: cover;
 }
 #app {
     display: grid;
@@ -111,6 +112,7 @@ video {
     color: #fff;
     background: no-repeat center center;
     background-size: cover;
+    border-bottom: 1px solid #dbdbdb;
     z-index: 1000000;
 }
 #app #content hr {
@@ -118,12 +120,15 @@ video {
     height: 1px;
     border: none;
 }
+
 #content #title h1 {
     letter-spacing:5px;
     font-size: 2rem;
+    color: #3d3d3d;
+
 }
 #content #title h1 p {
-    color: #bdbdbd;
+    color: #3d3d3d;
     font-size: 16px;
 }
 #content #article {
@@ -379,7 +384,7 @@ figure,figure table,figure table tbody {
         width: 750px;
         margin-top: 50px;
         margin-bottom: 20px;
-        border-radius: 10px;
+        border-radius: 20px;
         animation: appAnimator 1s;
     }
     #content #title {
@@ -395,18 +400,18 @@ figure,figure table,figure table tbody {
     #comment {
         width: 750px;
         margin-bottom: 50px;
-        border-radius: 10px;
+        border-radius: 20px;
     }
     .el-dialog {
         width: 700px;
     }
     #index-footer {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;    
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;    
     }
     #content #title {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;    
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;    
     }
 }
 @media all and (max-width: 753px){
@@ -416,8 +421,12 @@ figure,figure table,figure table tbody {
     #content #title {
         height: 300px;
     }
-    #title h1 {
+    #content #title h1 {
         width: 260px;
+        font-size: 2em;
+    }
+    #content #title h1 p {
+        font-size: 0.4em;
     }
     #content {
         width: 100%;
@@ -449,6 +458,15 @@ figure,figure table,figure table tbody {
     #content #title {
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;    
+    }
+    #content #article #articleTitle {
+        font-size: 20px;
+    }
+    #content #title h1 {
+        font-size: 18px;
+    } 
+    #content #title h1 p {
+        font-size: 14px;
     }
 }
 

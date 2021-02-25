@@ -4,6 +4,8 @@ layout: layout
 <div id="app">
     <div id="content">
         <%- include('nav.ejs') %>
+
+        <% if(page.imageCover==null) { %>
         <div id="title">
             <h1>
                 <%= page.title %><br>
@@ -16,6 +18,21 @@ layout: layout
                 <p>作者：<%- config.author %><br>编写：<%= page.date.format(config.date_format) %></p>
             </h1>
         </div>
+        <% } else { %>
+        <div id="title">
+            <h1 style="color: #fff;">
+                <%= page.title %><br>
+                <% if(page.subtitle!=null){ %>
+                    <p style="color: #fff;">
+                        <%= page.subtitle %><br>
+                    </p>
+                    <br>
+                <% } %>
+                <p style="color: #fff;">作者：<%- config.author %><br>编写：<%= page.date.format(config.date_format) %></p>
+            </h1>
+        </div>
+        <% } %>
+
         <div id="article">
             <%- page.content %>   
             <br>
